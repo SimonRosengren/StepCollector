@@ -37,8 +37,10 @@ var test = function() {
             endTimeMillis: Date.now()
           }),
           success: function(result) {
+            //console.log(result.bucket[0].dataset[0].point.length)
             result.bucket.forEach(function(element) {
-              returnArray.push({name: key, steps: element.dataset[0].point[0].value[0].intVal});
+              if(element.dataset[0].point.length != 0)
+                returnArray.push({name: key, steps: element.dataset[0].point[0].value[0].intVal});
             });
             return returnArray
           }
